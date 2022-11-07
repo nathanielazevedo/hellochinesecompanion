@@ -20,10 +20,26 @@ const Words = ({ deck, deckName }: { deck: any; deckName: string }) => {
     }
   };
   const previousWord = () => {
-    const idx = index;
-    setIndex(idx - 1);
-    setWord(deck[idx - 1]);
+    if (index !== 0) {
+      const idx = index;
+      setIndex(idx - 1);
+      setWord(deck[idx - 1]);
+    }
   };
+
+  const keyCheck = (e: any) => {
+    const key = e.key;
+    switch (key) {
+      case "ArrowRight":
+        nextWord();
+        break;
+      case "ArrowLeft":
+        previousWord();
+        break;
+    }
+  };
+
+  document.onkeydown = keyCheck;
 
   return !completed ? (
     <Box

@@ -16,11 +16,10 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
 } from "@mui/icons-material";
-import DescriptionIcon from "@mui/icons-material/Description";
-import CropOriginalIcon from "@mui/icons-material/CropOriginal";
-import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
+import SchoolIcon from "@mui/icons-material/School";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 const drawerWidth = 240;
 
@@ -88,9 +87,8 @@ export default function MiniDrawer({ switchDeck }: { switchDeck: any }) {
   const IconMapper = {
     Hello: <EmojiPeopleIcon />,
     Food: <FastfoodIcon />,
-    Gallery: <CropOriginalIcon />,
-    Projects: <WorkspacesIcon />,
-    Publications: <DescriptionIcon />,
+    School1: <SchoolIcon />,
+    Money: <MonetizationOnIcon />,
   } as IconMapperType;
 
   return (
@@ -102,7 +100,7 @@ export default function MiniDrawer({ switchDeck }: { switchDeck: any }) {
         PaperProps={{ sx: { position: "relative" } }}
       >
         <List>
-          {["Hello", "Food"].map((text, index) => (
+          {["Hello", "Food", "School1", "Money"].map((text, index) => (
             <ListItem
               key={text}
               disablePadding

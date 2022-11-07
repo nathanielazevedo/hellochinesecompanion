@@ -3,11 +3,13 @@ import styles from "../styles/Home.module.css";
 import Words from "~/components/Words";
 import Hello from "../components/wordBank/Hello";
 import Food from "../components/wordBank/Food";
+import Money from "../components/wordBank/Money";
 import { useState } from "react";
 import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import SideNav from "~/components/SideNav";
 import TopNav from "~/components/TopNav";
 import Welcome from "../components/Welcome";
+import School1 from "../components/wordBank/School1";
 
 type registerType = {
   [key: string]: any;
@@ -30,6 +32,8 @@ export default function Home() {
   const register: registerType = {
     Hello,
     Food,
+    School1,
+    Money,
   };
 
   const switchDeck = (text: string) => {

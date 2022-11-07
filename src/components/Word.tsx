@@ -16,6 +16,7 @@ const Word = ({ word, next }: { word: any; next: any }) => {
     var msg = new SpeechSynthesisUtterance();
     msg.text = textChinese;
     msg.lang = "zh";
+    msg.rate = 0.5;
     window.speechSynthesis.speak(msg);
   };
 
