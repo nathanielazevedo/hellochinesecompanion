@@ -2,7 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import Input from "~/components/Letter";
 import styles from "../styles/Home.module.css";
 
-const Word = ({ word, next }: { word: any; next: any }) => {
+const Word = ({
+  word,
+  next,
+  volumne,
+}: {
+  word: any;
+  next: any;
+  volumne: number;
+}) => {
   const [inputRefs, setInputRefs] = useState<any>(undefined);
   const text = word.word.pinyin;
   const textChinese = word.word.chinese;
@@ -16,7 +24,7 @@ const Word = ({ word, next }: { word: any; next: any }) => {
     var msg = new SpeechSynthesisUtterance();
     msg.text = textChinese;
     msg.lang = "zh";
-    msg.rate = 0.5;
+    msg.rate = volumne;
     window.speechSynthesis.speak(msg);
   };
 

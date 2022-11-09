@@ -1,11 +1,21 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Slider, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Word from "~/components/Word";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import Finished from "./Finished";
 
-const Words = ({ deck, deckName }: { deck: any; deckName: string }) => {
+const Words = ({
+  deck,
+  deckName,
+  volumne,
+  setVolumne,
+}: {
+  deck: any;
+  deckName: string;
+  volumne: any;
+  setVolumne: any;
+}) => {
   const [index, setIndex] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [word, setWord] = useState(deck[index]);
@@ -49,7 +59,7 @@ const Words = ({ deck, deckName }: { deck: any; deckName: string }) => {
       justifyContent="space-between"
       width="100%"
     >
-      <Word word={word} next={nextWord} />
+      <Word word={word} next={nextWord} volumne={volumne} />
       <Box
         sx={{
           height: "50px",
@@ -63,6 +73,24 @@ const Words = ({ deck, deckName }: { deck: any; deckName: string }) => {
         }}
       >
         <Typography>{deckName}</Typography>
+        <Stack
+          spacing={2}
+          direction="row"
+          sx={{ mb: 1, width: "300px" }}
+          alignItems="center"
+        >
+          <Slider
+            aria-label="Volume"
+            value={volumne as number}
+            onChange={(event: Event, newValue: number | number[]) =>
+              setVolumne(newValue)
+            }
+            color="secondary"
+            min={0.5}
+            max={2}
+            step={0.1}
+          />
+        </Stack>
         <div style={{ display: "flex" }}>
           {index !== 0 && (
             <ArrowLeftIcon onClick={previousWord} sx={{ cursor: "pointer" }} />

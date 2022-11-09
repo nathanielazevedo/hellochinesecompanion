@@ -94,6 +94,7 @@ export default function Home() {
   const [deck, setDeck] = useState();
   const [deckName, setDeckName] = useState("");
   const [initialRender, setInitialRender] = useState(true);
+  const [volumne, setVolumne] = useState<number>(50);
   const register: registerType = {
     Hello,
     Food,
@@ -201,7 +202,14 @@ export default function Home() {
             sx={{ height: "100vh", width: "100vw" }}
           >
             <TopNav backToHome={backToHome} />
-            {deck ? <Words deck={deck} deckName={deckName} /> : null}
+            {deck ? (
+              <Words
+                deck={deck}
+                deckName={deckName}
+                setVolumne={setVolumne}
+                volumne={volumne}
+              />
+            ) : null}
             {initialRender && <Welcome />}
           </Box>
           <CssBaseline />

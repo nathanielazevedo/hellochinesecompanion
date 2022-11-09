@@ -117,9 +117,12 @@ export default function MiniDrawer({ switchDeck }: { switchDeck: any }) {
       >
         <List>
           {Titles.map((text, index) => (
-            <Tooltip title={open ? "" : text.english} placement="right">
+            <Tooltip
+              title={open ? "" : text.english}
+              placement="right"
+              key={text.english}
+            >
               <ListItem
-                key={text.english}
                 disablePadding
                 sx={{ display: "block" }}
                 onClick={() => switchDeck(text.english)}
