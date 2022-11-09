@@ -13,7 +13,7 @@ const Input = ({
 }) => {
   const [letterState, setLetterState] = useState<string>();
   const [showCheck, setShowCheck] = useState<boolean>(false);
-  const [borderColor, setBorderColor] = useState<string>("transparent");
+  const [borderColor, setBorderColor] = useState<string>("white");
 
   useEffect(() => {
     return () => {
@@ -53,10 +53,11 @@ const Input = ({
           textAlign: "center",
           fontSize: "55px",
           borderStyle: "solid",
-          borderWidth: "1px",
+          borderWidth: "0.5px",
           borderColor: borderColor,
           outline: "none",
           borderRadius: "5px",
+          backgroundColor: "#1b1c1c",
         }}
       />
       {showCheck && (

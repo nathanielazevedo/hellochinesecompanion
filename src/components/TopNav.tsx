@@ -15,6 +15,7 @@ function TopNav({ backToHome }: { backToHome: () => void }) {
         padding: "0 25px",
         borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
         position: "relative",
+        width: "100%",
       }}
     >
       <Typography

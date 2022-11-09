@@ -9,19 +9,18 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Typography,
+  Tooltip,
 } from "@mui/material";
 import {
-  Home as HomeIcon,
-  Groups as GroupsIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
 } from "@mui/icons-material";
-import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
-import SchoolIcon from "@mui/icons-material/School";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import { useTheme } from "@mui/material/styles";
 
-const drawerWidth = 240;
+import { Titles } from "./wordBank/Titles";
+
+const drawerWidth = 250;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -46,12 +45,14 @@ const closedMixin = (theme: Theme): CSSObject => ({
 
 const DrawerToggle = styled("div")(({ theme }) => ({
   display: "flex",
-  flex: 1,
   flexDirection: "column",
-  alignSelf: "flex-end",
   justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  ...theme.mixins.toolbar,
+  minHeight: "49px !important",
+  borderRight: "1px solid rgba(255, 255, 255, 0.12)",
+  transition: theme.transitions.create("width", {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
 }));
 
 const Drawer = styled(MuiDrawer, {
@@ -74,66 +75,81 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer({ switchDeck }: { switchDeck: any }) {
   const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
 
   const handleDrawer = () => {
     open ? setOpen(false) : setOpen(true);
   };
 
-  type IconMapperType = {
-    Hello: any;
-    Food: any;
-  };
-
-  const IconMapper = {
-    Hello: <EmojiPeopleIcon />,
-    Food: <FastfoodIcon />,
-    School1: <SchoolIcon />,
-    Money: <MonetizationOnIcon />,
-  } as IconMapperType;
-
   return (
-    <Box sx={{ display: "flex", zIndex: "0" }}>
+    <Box
+      sx={{
+        display: "flex",
+        zIndex: "0",
+        maxHeight: "95vh",
+        flexDirection: "column",
+      }}
+    >
+      <DrawerToggle
+        sx={{ width: open ? drawerWidth : `calc(${theme.spacing(7)} + 9px)` }}
+      >
+        <IconButton
+          onClick={handleDrawer}
+          style={{
+            maxWidth: "40px",
+            justifySelf: "flex-start",
+            marginLeft: "13px",
+          }}
+        >
+          {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </IconButton>
+      </DrawerToggle>
       <Drawer
         variant="permanent"
         open={open}
         elevation={1}
-        PaperProps={{ sx: { position: "relative" } }}
+        PaperProps={{
+          sx: {
+            position: "relative",
+            borderTop: "1px solid rgba(255, 255, 255, 0.12)",
+          },
+        }}
       >
         <List>
-          {["Hello", "Food", "School1", "Money"].map((text, index) => (
-            <ListItem
-              key={text}
-              disablePadding
-              sx={{ display: "block" }}
-              onClick={() => switchDeck(text)}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
+          {Titles.map((text, index) => (
+            <Tooltip title={open ? "" : text.english} placement="right">
+              <ListItem
+                key={text.english}
+                disablePadding
+                sx={{ display: "block" }}
+                onClick={() => switchDeck(text.english)}
               >
-                <ListItemIcon
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    fontSize: 10,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  {IconMapper[text as keyof IconMapperType]}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 40,
+                      fontSize: 10,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Typography variant="h6">{text.chinese}</Typography>
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text.english}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
           ))}
         </List>
-        <DrawerToggle sx={{ marginBottom: "10px" }}>
-          <IconButton onClick={handleDrawer} sx={{ color: "grey.500" }}>
-            {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerToggle>
       </Drawer>
     </Box>
   );
