@@ -18,6 +18,7 @@ const Words = ({
 }) => {
   const [index, setIndex] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const [errorCount, setErrorCount] = useState<number>(0);
   const [word, setWord] = useState(deck[index]);
 
   const nextWord = () => {
@@ -49,6 +50,8 @@ const Words = ({
     }
   };
 
+  console.log(errorCount);
+
   document.onkeydown = keyCheck;
 
   return !completed ? (
@@ -59,7 +62,12 @@ const Words = ({
       justifyContent="space-between"
       width="100%"
     >
-      <Word word={word} next={nextWord} volumne={volumne} />
+      <Word
+        word={word}
+        next={nextWord}
+        volumne={volumne}
+        setErrorCount={setErrorCount}
+      />
       <Box
         sx={{
           height: "50px",
@@ -76,7 +84,7 @@ const Words = ({
         <Stack
           spacing={2}
           direction="row"
-          sx={{ mb: 1, width: "300px" }}
+          sx={{ width: "300px" }}
           alignItems="center"
         >
           <Slider

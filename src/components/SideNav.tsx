@@ -76,6 +76,7 @@ const Drawer = styled(MuiDrawer, {
 export default function MiniDrawer({ switchDeck }: { switchDeck: any }) {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
+  const [selected, setSelected] = React.useState<string>();
 
   const handleDrawer = () => {
     open ? setOpen(false) : setOpen(true);
@@ -115,17 +116,23 @@ export default function MiniDrawer({ switchDeck }: { switchDeck: any }) {
           },
         }}
       >
-        <List>
+        <List sx={{ paddingTop: 0 }}>
           {Titles.map((text, index) => (
             <Tooltip
               title={open ? "" : text.english}
               placement="right"
-              key={text.english}
+              key={index}
             >
               <ListItem
                 disablePadding
-                sx={{ display: "block" }}
-                onClick={() => switchDeck(text.english)}
+                selected={text.english == selected}
+                onClick={() => {
+                  switchDeck(text.english);
+                  setSelected(text.english);
+                }}
+                sx={{
+                  display: "block",
+                }}
               >
                 <ListItemButton
                   sx={{

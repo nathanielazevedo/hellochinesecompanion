@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Patterns from "../components/Patterns";
 import styles from "../styles/Home.module.css";
 import Words from "~/components/Words";
 import Hello from "../components/wordBank/Hello";
@@ -75,6 +76,7 @@ import { China_1 } from "../components/wordBank/China_1";
 import { China_2 } from "../components/wordBank/China_2";
 import { Nature } from "../components/wordBank/Nature";
 import { Environment } from "../components/wordBank/Environment";
+import Overview from "~/components/Overview";
 
 type registerType = {
   [key: string]: any;
@@ -93,8 +95,9 @@ const darkTheme = createTheme({
 export default function Home() {
   const [deck, setDeck] = useState();
   const [deckName, setDeckName] = useState("");
+  const [tab, setTab] = useState<string | undefined>(undefined);
   const [initialRender, setInitialRender] = useState(true);
-  const [volumne, setVolumne] = useState<number>(50);
+  const [volumne, setVolumne] = useState<number>(1);
   const register: registerType = {
     Hello,
     Food,
@@ -182,6 +185,23 @@ export default function Home() {
     setInitialRender(true);
   };
 
+  const getPage = () => {
+    if (tab === "patterns") {
+      return <Patterns />;
+    } else if (tab === "spelling") {
+      return (
+        <Words
+          deck={deck}
+          deckName={deckName}
+          setVolumne={setVolumne}
+          volumne={volumne}
+        />
+      );
+    } else {
+      return <Overview deck={deck} />;
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -201,15 +221,8 @@ export default function Home() {
             flexDirection="column"
             sx={{ height: "100vh", width: "100vw" }}
           >
-            <TopNav backToHome={backToHome} />
-            {deck ? (
-              <Words
-                deck={deck}
-                deckName={deckName}
-                setVolumne={setVolumne}
-                volumne={volumne}
-              />
-            ) : null}
+            <TopNav backToHome={backToHome} deck={deck} setTab={setTab} />
+            {deck && getPage()}
             {initialRender && <Welcome />}
           </Box>
           <CssBaseline />

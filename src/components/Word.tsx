@@ -6,10 +6,12 @@ const Word = ({
   word,
   next,
   volumne,
+  setErrorCount,
 }: {
   word: any;
   next: any;
   volumne: number;
+  setErrorCount: any;
 }) => {
   const [inputRefs, setInputRefs] = useState<any>(undefined);
   const text = word.word.pinyin;
@@ -28,6 +30,8 @@ const Word = ({
     window.speechSynthesis.speak(msg);
   };
 
+  const random = Math.random();
+
   return (
     <div style={{ padding: "10rem 0 0 5rem" }}>
       <p className={styles.description} onClick={sayWord}>
@@ -44,11 +48,12 @@ const Word = ({
         {inputRefs &&
           textToArray?.map((letter: string, i: number) => (
             <Input
-              letter={letter}
+              setErrorCount={setErrorCount}
               refs={inputRefs?.children}
-              index={i}
+              key={i + letter + random}
+              letter={letter}
               next={next}
-              key={i + letter}
+              index={i}
             />
           ))}
       </div>

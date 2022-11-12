@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import CheckIcon from "@mui/icons-material/Check";
+import { LinearProgress } from "@mui/material";
 const Input = ({
   letter,
   index,
   refs,
   next,
+  setErrorCount,
 }: {
   letter: string;
   index: number;
   refs: any;
   next: any;
+  setErrorCount: any;
 }) => {
   const [letterState, setLetterState] = useState<string>();
   const [showCheck, setShowCheck] = useState<boolean>(false);
@@ -21,11 +24,17 @@ const Input = ({
     };
   }, []);
 
+  const specialCharacters = ["¯", "`", "ˇ", "´"];
   const handleChange = (val: string) => {
+    const special = specialCharacters.find((e) => e == val);
     if (val.length > 1) return;
+    if (!!special) {
+      setLetterState(val);
+      return;
+    }
     setLetterState(val);
     if (val.toLowerCase() === letter.toLowerCase()) {
-      setBorderColor("green");
+      setBorderColor("lightgreen");
       if (index === refs?.length - 1) {
         setShowCheck(true);
         setTimeout(() => {
@@ -36,6 +45,7 @@ const Input = ({
       }
     } else {
       setBorderColor("red");
+      // setErrorCount((o) => o + 1);
     }
   };
   return (
@@ -61,11 +71,8 @@ const Input = ({
         }}
       />
       {showCheck && (
-        <CheckCircleOutlineIcon
-          style={{
-            color: "green",
-            fontSize: "70px",
-          }}
+        <CheckIcon
+          sx={{ color: "lightgreen", marginLeft: "50px", fontSize: "50px" }}
         />
       )}
     </>
