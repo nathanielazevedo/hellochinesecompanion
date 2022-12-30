@@ -1,1 +1,19 @@
-export const Personal_Information = [{"word":{"chinese":"什么","pinyin":"shénme"}},{"word":{"chinese":"叫","pinyin":"jiào"}},{"word":{"chinese":"姓","pinyin":"xìng"}},{"word":{"chinese":"谁","pinyin":"shuí"}},{"word":{"chinese":"谁","pinyin":"shéi"}},{"word":{"chinese":"哪","pinyin":"nǎ"}},{"word":{"chinese":"国","pinyin":"guó"}},{"word":{"chinese":"多大","pinyin":"duō dà"}},{"word":{"chinese":"岁","pinyin":"suì"}},{"word":{"chinese":"呢","pinyin":"ne"}},{"word":{"chinese":"老师","pinyin":"lǎoshī"}},{"word":{"chinese":"医生","pinyin":"yīshēng"}},{"word":{"chinese":"学生","pinyin":"xuésheng"}},{"word":{"chinese":"北京","pinyin":"Běijīng"}},{"word":{"chinese":"上海","pinyin":"Shànghǎi"}},{"word":{"chinese":"纽约","pinyin":"Niǔyuē"}},{"word":{"chinese":"伦敦","pinyin":"Lúndūn"}}]
+export const Personal_Information = [
+  { word: { chinese: "什么", pinyin: "shénme" } },
+  { word: { chinese: "叫", pinyin: "jiào" } },
+  { word: { chinese: "姓", pinyin: "xìng" } },
+  { word: { chinese: "谁", pinyin: "shuí" } },
+  { word: { chinese: "谁", pinyin: "shéi" } },
+  { word: { chinese: "哪", pinyin: "nǎ" } },
+  { word: { chinese: "国", pinyin: "guó" } },
+  { word: { chinese: "多大", pinyin: "duō dà" } },
+  { word: { chinese: "岁", pinyin: "suì" } },
+  { word: { chinese: "呢", pinyin: "ne" } },
+  { word: { chinese: "老师", pinyin: "lǎoshī" } },
+  { word: { chinese: "医生", pinyin: "yīshēng" } },
+  { word: { chinese: "学生", pinyin: "xuésheng" } },
+  { word: { chinese: "北京", pinyin: "Běijīng" } },
+  { word: { chinese: "上海", pinyin: "Shànghǎi" } },
+  { word: { chinese: "纽约", pinyin: "Niǔyuē" } },
+  { word: { chinese: "伦敦", pinyin: "Lúndūn" } },
+];

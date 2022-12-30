@@ -1,1 +1,16 @@
-export const Shopping = [{"word":{"chinese":"试","pinyin":"shì"}},{"word":{"chinese":"逛","pinyin":"guàng"}},{"word":{"chinese":"尝","pinyin":"cháng"}},{"word":{"chinese":"手机","pinyin":"shǒujī"}},{"word":{"chinese":"电脑","pinyin":"diànnǎo"}},{"word":{"chinese":"钱包","pinyin":"qiánbāo"}},{"word":{"chinese":"手表","pinyin":"shǒubiǎo"}},{"word":{"chinese":"觉得","pinyin":"juéde"}},{"word":{"chinese":"怎么样","pinyin":"zěnmeyàng"}},{"word":{"chinese":"可以","pinyin":"kěyǐ"}},{"word":{"chinese":"用","pinyin":"yòng"}},{"word":{"chinese":"现金","pinyin":"xiànjīn"}},{"word":{"chinese":"信用卡","pinyin":"xìnyòngkǎ"}},{"word":{"chinese":"支付宝","pinyin":"Zhīfùbǎo"}}]
+export const Shopping = [
+  { word: { chinese: "试", pinyin: "shì" } },
+  { word: { chinese: "逛", pinyin: "guàng" } },
+  { word: { chinese: "尝", pinyin: "cháng" } },
+  { word: { chinese: "手机", pinyin: "shǒujī" } },
+  { word: { chinese: "电脑", pinyin: "diànnǎo" } },
+  { word: { chinese: "钱包", pinyin: "qiánbāo" } },
+  { word: { chinese: "手表", pinyin: "shǒubiǎo" } },
+  { word: { chinese: "觉得", pinyin: "juéde" } },
+  { word: { chinese: "怎么样", pinyin: "zěnmeyàng" } },
+  { word: { chinese: "可以", pinyin: "kěyǐ" } },
+  { word: { chinese: "用", pinyin: "yòng" } },
+  { word: { chinese: "现金", pinyin: "xiànjīn" } },
+  { word: { chinese: "信用卡", pinyin: "xìnyòngkǎ" } },
+  { word: { chinese: "支付宝", pinyin: "Zhīfùbǎo" } },
+];

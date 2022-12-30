@@ -1,1 +1,18 @@
-export const Appearance = [{"word":{"chinese":"胖","pinyin":"pàng"}},{"word":{"chinese":"瘦","pinyin":"shòu"}},{"word":{"chinese":"比","pinyin":"bǐ"}},{"word":{"chinese":"帅","pinyin":"shuài"}},{"word":{"chinese":"高","pinyin":"gāo"}},{"word":{"chinese":"矮","pinyin":"ǎi"}},{"word":{"chinese":"一点儿","pinyin":"yīdiǎnr"}},{"word":{"chinese":"眼睛","pinyin":"yǎnjing"}},{"word":{"chinese":"脸","pinyin":"liǎn"}},{"word":{"chinese":"没有","pinyin":"méiyǒu"}},{"word":{"chinese":"头发","pinyin":"tóufa"}},{"word":{"chinese":"腿","pinyin":"tuǐ"}},{"word":{"chinese":"长","pinyin":"cháng"}},{"word":{"chinese":"短","pinyin":"duǎn"}},{"word":{"chinese":"更","pinyin":"gèng"}},{"word":{"chinese":"最","pinyin":"zuì"}}]
+export const Appearance = [
+  { word: { chinese: "胖", pinyin: "pàng" } },
+  { word: { chinese: "瘦", pinyin: "shòu" } },
+  { word: { chinese: "比", pinyin: "bǐ" } },
+  { word: { chinese: "帅", pinyin: "shuài" } },
+  { word: { chinese: "高", pinyin: "gāo" } },
+  { word: { chinese: "矮", pinyin: "ǎi" } },
+  { word: { chinese: "一点儿", pinyin: "yīdiǎnr" } },
+  { word: { chinese: "眼睛", pinyin: "yǎnjing" } },
+  { word: { chinese: "脸", pinyin: "liǎn" } },
+  { word: { chinese: "没有", pinyin: "méiyǒu" } },
+  { word: { chinese: "头发", pinyin: "tóufa" } },
+  { word: { chinese: "腿", pinyin: "tuǐ" } },
+  { word: { chinese: "长", pinyin: "cháng" } },
+  { word: { chinese: "短", pinyin: "duǎn" } },
+  { word: { chinese: "更", pinyin: "gèng" } },
+  { word: { chinese: "最", pinyin: "zuì" } },
+];

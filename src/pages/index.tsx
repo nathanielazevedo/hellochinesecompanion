@@ -76,7 +76,9 @@ import { China_1 } from "../components/wordBank/China_1";
 import { China_2 } from "../components/wordBank/China_2";
 import { Nature } from "../components/wordBank/Nature";
 import { Environment } from "../components/wordBank/Environment";
+import { Alphabet } from "../components/wordBank/Alphabet";
 import Overview from "~/components/Overview";
+import AlphabetC from "~/components/AlphabetC";
 
 type registerType = {
   [key: string]: any;
@@ -168,6 +170,7 @@ export default function Home() {
     China_2,
     Nature,
     Environment,
+    Alphabet,
   };
 
   const switchDeck = (text: string) => {
@@ -186,19 +189,23 @@ export default function Home() {
   };
 
   const getPage = () => {
-    if (tab === "patterns") {
-      return <Patterns />;
-    } else if (tab === "spelling") {
-      return (
-        <Words
-          deck={deck}
-          deckName={deckName}
-          setVolumne={setVolumne}
-          volumne={volumne}
-        />
-      );
+    if (deckName === "Alphabet") {
+      return <AlphabetC words={deck} />;
     } else {
-      return <Overview deck={deck} />;
+      if (tab === "patterns") {
+        return <Patterns />;
+      } else if (tab === "spelling") {
+        return (
+          <Words
+            deck={deck}
+            deckName={deckName}
+            setVolumne={setVolumne}
+            volumne={volumne}
+          />
+        );
+      } else {
+        return <Overview deck={deck} />;
+      }
     }
   };
 

@@ -1,1 +1,19 @@
-export const Locations = [{"word":{"chinese":"去","pinyin":"qù"}},{"word":{"chinese":"饭馆","pinyin":"fànguǎn"}},{"word":{"chinese":"学校","pinyin":"xuéxiào"}},{"word":{"chinese":"超市","pinyin":"chāoshì"}},{"word":{"chinese":"公司","pinyin":"gōngsī"}},{"word":{"chinese":"哪里","pinyin":"nǎli"}},{"word":{"chinese":"在","pinyin":"zài"}},{"word":{"chinese":"商店","pinyin":"shāngdiàn"}},{"word":{"chinese":"机场","pinyin":"jīchǎng"}},{"word":{"chinese":"医院","pinyin":"yīyuàn"}},{"word":{"chinese":"前边","pinyin":"qiánbian"}},{"word":{"chinese":"后边","pinyin":"hòubian"}},{"word":{"chinese":"公园","pinyin":"gōngyuán"}},{"word":{"chinese":"酒店","pinyin":"jiǔdiàn"}},{"word":{"chinese":"附近","pinyin":"fùjìn"}},{"word":{"chinese":"厕所","pinyin":"cèsuǒ"}},{"word":{"chinese":"银行","pinyin":"yínháng"}}]
+export const Locations = [
+  { word: { chinese: "去", pinyin: "qù" } },
+  { word: { chinese: "饭馆", pinyin: "fànguǎn" } },
+  { word: { chinese: "学校", pinyin: "xuéxiào" } },
+  { word: { chinese: "超市", pinyin: "chāoshì" } },
+  { word: { chinese: "公司", pinyin: "gōngsī" } },
+  { word: { chinese: "哪里", pinyin: "nǎli" } },
+  { word: { chinese: "在", pinyin: "zài" } },
+  { word: { chinese: "商店", pinyin: "shāngdiàn" } },
+  { word: { chinese: "机场", pinyin: "jīchǎng" } },
+  { word: { chinese: "医院", pinyin: "yīyuàn" } },
+  { word: { chinese: "前边", pinyin: "qiánbian" } },
+  { word: { chinese: "后边", pinyin: "hòubian" } },
+  { word: { chinese: "公园", pinyin: "gōngyuán" } },
+  { word: { chinese: "酒店", pinyin: "jiǔdiàn" } },
+  { word: { chinese: "附近", pinyin: "fùjìn" } },
+  { word: { chinese: "厕所", pinyin: "cèsuǒ" } },
+  { word: { chinese: "银行", pinyin: "yínháng" } },
+];

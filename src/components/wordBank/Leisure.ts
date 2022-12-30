@@ -1,1 +1,19 @@
-export const Leisure = [{"word":{"chinese":"经常","pinyin":"jīngcháng"}},{"word":{"chinese":"干什么","pinyin":"gàn shénme"}},{"word":{"chinese":"听","pinyin":"tīng"}},{"word":{"chinese":"玩","pinyin":"wán"}},{"word":{"chinese":"上网","pinyin":"shàngwǎng"}},{"word":{"chinese":"音乐","pinyin":"yīnyuè"}},{"word":{"chinese":"游戏","pinyin":"yóuxì"}},{"word":{"chinese":"看","pinyin":"kàn"}},{"word":{"chinese":"电影","pinyin":"diànyǐng"}},{"word":{"chinese":"电视","pinyin":"diànshì"}},{"word":{"chinese":"书","pinyin":"shū"}},{"word":{"chinese":"报纸","pinyin":"bàozhǐ"}},{"word":{"chinese":"跟","pinyin":"gēn"}},{"word":{"chinese":"一起","pinyin":"yīqǐ"}},{"word":{"chinese":"朋友","pinyin":"péngyou"}},{"word":{"chinese":"同学","pinyin":"tóngxué"}},{"word":{"chinese":"同事","pinyin":"tóngshì"}}]
+export const Leisure = [
+  { word: { chinese: "经常", pinyin: "jīngcháng" } },
+  { word: { chinese: "干什么", pinyin: "gàn shénme" } },
+  { word: { chinese: "听", pinyin: "tīng" } },
+  { word: { chinese: "玩", pinyin: "wán" } },
+  { word: { chinese: "上网", pinyin: "shàngwǎng" } },
+  { word: { chinese: "音乐", pinyin: "yīnyuè" } },
+  { word: { chinese: "游戏", pinyin: "yóuxì" } },
+  { word: { chinese: "看", pinyin: "kàn" } },
+  { word: { chinese: "电影", pinyin: "diànyǐng" } },
+  { word: { chinese: "电视", pinyin: "diànshì" } },
+  { word: { chinese: "书", pinyin: "shū" } },
+  { word: { chinese: "报纸", pinyin: "bàozhǐ" } },
+  { word: { chinese: "跟", pinyin: "gēn" } },
+  { word: { chinese: "一起", pinyin: "yīqǐ" } },
+  { word: { chinese: "朋友", pinyin: "péngyou" } },
+  { word: { chinese: "同学", pinyin: "tóngxué" } },
+  { word: { chinese: "同事", pinyin: "tóngshì" } },
+];

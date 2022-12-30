@@ -1,1 +1,20 @@
-export const Sports = [{"word":{"chinese":"会","pinyin":"huì"}},{"word":{"chinese":"打","pinyin":"dǎ"}},{"word":{"chinese":"篮球","pinyin":"lánqiú"}},{"word":{"chinese":"网球","pinyin":"wǎngqiú"}},{"word":{"chinese":"羽毛球","pinyin":"yǔmáoqiú"}},{"word":{"chinese":"棒球","pinyin":"bàngqiú"}},{"word":{"chinese":"吧","pinyin":"ba"}},{"word":{"chinese":"跑步","pinyin":"pǎobù"}},{"word":{"chinese":"游泳","pinyin":"yóuyǒng"}},{"word":{"chinese":"踢","pinyin":"tī"}},{"word":{"chinese":"足球","pinyin":"zúqiú"}},{"word":{"chinese":"得","pinyin":"de"}},{"word":{"chinese":"好","pinyin":"hǎo"}},{"word":{"chinese":"差","pinyin":"chà"}},{"word":{"chinese":"骑","pinyin":"qí"}},{"word":{"chinese":"快","pinyin":"kuài"}},{"word":{"chinese":"慢","pinyin":"màn"}},{"word":{"chinese":"自行车","pinyin":"zìxíngchē"}}]
+export const Sports = [
+  { word: { chinese: "会", pinyin: "huì" } },
+  { word: { chinese: "打", pinyin: "dǎ" } },
+  { word: { chinese: "篮球", pinyin: "lánqiú" } },
+  { word: { chinese: "网球", pinyin: "wǎngqiú" } },
+  { word: { chinese: "羽毛球", pinyin: "yǔmáoqiú" } },
+  { word: { chinese: "棒球", pinyin: "bàngqiú" } },
+  { word: { chinese: "吧", pinyin: "ba" } },
+  { word: { chinese: "跑步", pinyin: "pǎobù" } },
+  { word: { chinese: "游泳", pinyin: "yóuyǒng" } },
+  { word: { chinese: "踢", pinyin: "tī" } },
+  { word: { chinese: "足球", pinyin: "zúqiú" } },
+  { word: { chinese: "得", pinyin: "de" } },
+  { word: { chinese: "好", pinyin: "hǎo" } },
+  { word: { chinese: "差", pinyin: "chà" } },
+  { word: { chinese: "骑", pinyin: "qí" } },
+  { word: { chinese: "快", pinyin: "kuài" } },
+  { word: { chinese: "慢", pinyin: "màn" } },
+  { word: { chinese: "自行车", pinyin: "zìxíngchē" } },
+];

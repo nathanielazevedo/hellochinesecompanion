@@ -1,1 +1,15 @@
-export const Daily_Schedule = [{"word":{"chinese":"每天","pinyin":"měitiān"}},{"word":{"chinese":"回","pinyin":"huí"}},{"word":{"chinese":"来","pinyin":"lái"}},{"word":{"chinese":"早饭","pinyin":"zǎofàn"}},{"word":{"chinese":"午饭","pinyin":"wǔfàn"}},{"word":{"chinese":"晚饭","pinyin":"wǎnfàn"}},{"word":{"chinese":"什么时候","pinyin":"shénme shíhou"}},{"word":{"chinese":"上班","pinyin":"shàngbān"}},{"word":{"chinese":"下班","pinyin":"xiàbān"}},{"word":{"chinese":"上课","pinyin":"shàngkè"}},{"word":{"chinese":"下课","pinyin":"xiàkè"}},{"word":{"chinese":"能","pinyin":"néng"}},{"word":{"chinese":"周末","pinyin":"zhōumò"}}]
+export const Daily_Schedule = [
+  { word: { chinese: "每天", pinyin: "měitiān" } },
+  { word: { chinese: "回", pinyin: "huí" } },
+  { word: { chinese: "来", pinyin: "lái" } },
+  { word: { chinese: "早饭", pinyin: "zǎofàn" } },
+  { word: { chinese: "午饭", pinyin: "wǔfàn" } },
+  { word: { chinese: "晚饭", pinyin: "wǎnfàn" } },
+  { word: { chinese: "什么时候", pinyin: "shénme shíhou" } },
+  { word: { chinese: "上班", pinyin: "shàngbān" } },
+  { word: { chinese: "下班", pinyin: "xiàbān" } },
+  { word: { chinese: "上课", pinyin: "shàngkè" } },
+  { word: { chinese: "下课", pinyin: "xiàkè" } },
+  { word: { chinese: "能", pinyin: "néng" } },
+  { word: { chinese: "周末", pinyin: "zhōumò" } },
+];

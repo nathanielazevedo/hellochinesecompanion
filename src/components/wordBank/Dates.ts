@@ -1,1 +1,17 @@
-export const Dates = [{"word":{"chinese":"今天","pinyin":"jīntiān"}},{"word":{"chinese":"星期一","pinyin":"Xīngqīyī"}},{"word":{"chinese":"星期二","pinyin":"Xīngqīèr"}},{"word":{"chinese":"星期三","pinyin":"Xīngqīsān"}},{"word":{"chinese":"星期四","pinyin":"Xīngqīsì"}},{"word":{"chinese":"星期五","pinyin":"Xīngqīwǔ"}},{"word":{"chinese":"星期六","pinyin":"Xīngqīliù"}},{"word":{"chinese":"星期天","pinyin":"Xīngqītiān"}},{"word":{"chinese":"昨天","pinyin":"zuótiān"}},{"word":{"chinese":"星期几","pinyin":"xīngqījǐ"}},{"word":{"chinese":"月","pinyin":"yuè"}},{"word":{"chinese":"号","pinyin":"hào"}},{"word":{"chinese":"年","pinyin":"nián"}},{"word":{"chinese":"生日","pinyin":"shēngri"}},{"word":{"chinese":"零","pinyin":"líng"}}]
+export const Dates = [
+  { word: { chinese: "今天", pinyin: "jīntiān" } },
+  { word: { chinese: "星期一", pinyin: "Xīngqīyī" } },
+  { word: { chinese: "星期二", pinyin: "Xīngqīèr" } },
+  { word: { chinese: "星期三", pinyin: "Xīngqīsān" } },
+  { word: { chinese: "星期四", pinyin: "Xīngqīsì" } },
+  { word: { chinese: "星期五", pinyin: "Xīngqīwǔ" } },
+  { word: { chinese: "星期六", pinyin: "Xīngqīliù" } },
+  { word: { chinese: "星期天", pinyin: "Xīngqītiān" } },
+  { word: { chinese: "昨天", pinyin: "zuótiān" } },
+  { word: { chinese: "星期几", pinyin: "xīngqījǐ" } },
+  { word: { chinese: "月", pinyin: "yuè" } },
+  { word: { chinese: "号", pinyin: "hào" } },
+  { word: { chinese: "年", pinyin: "nián" } },
+  { word: { chinese: "生日", pinyin: "shēngri" } },
+  { word: { chinese: "零", pinyin: "líng" } },
+];

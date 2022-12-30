@@ -1,4 +1,5 @@
 export const Titles = [
+  { english: "Alphabet", chinese: "字母" },
   { english: "Hello", chinese: "你好" },
   { english: "Food", chinese: "食物" },
   { english: "School1", chinese: "学校" },
