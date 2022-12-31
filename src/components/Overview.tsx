@@ -21,31 +21,31 @@ const Overview = ({ deck }: { deck: any }) => {
     <TableContainer
       component={Paper}
       variant="outlined"
-      sx={{ margin: "40px", maxWidth: "92vw" }}
+      sx={{ padding: "20px 40px 0 40px" }}
     >
       <Table aria-label="simple table" stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell align="center" sx={{ borderBottomWidth: "0.1px" }}>
-              <Typography variant="h5">Character</Typography>
+            <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
+              <Typography variant="h6">Character</Typography>
             </TableCell>
-            <TableCell align="center" sx={{ borderBottomWidth: "0.1px" }}>
-              <Typography variant="h5">Pinyin</Typography>
+            <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
+              <Typography variant="h6">Pinyin</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {deck.map((word) => (
+          {deck.map((word: Record<any, any>) => (
             <TableRow key={word.chinese}>
               <TableCell
                 align="center"
-                sx={{ cursor: "pointer", borderBottomWidth: "0.1px" }}
+                sx={{ cursor: "pointer", borderBottomWidth: "0.01px" }}
                 onClick={() => sayWord(word.word.chinese)}
               >
-                <Typography variant="h4">{word.word.chinese}</Typography>
+                <Typography variant="h6">{word.word.chinese}</Typography>
               </TableCell>
-              <TableCell align="center" sx={{ borderBottomWidth: "0.1px" }}>
-                <Typography variant="h5">{word.word.pinyin}</Typography>
+              <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
+                <Typography variant="h6">{word.word.pinyin}</Typography>
               </TableCell>
             </TableRow>
           ))}

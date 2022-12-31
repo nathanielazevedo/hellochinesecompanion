@@ -1,38 +1,23 @@
 import { TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import Earth from "./earth";
 
 const Patterns = () => {
-  const [border, setBorder] = useState("transparent");
-  const firstWord = "ni hao, ni zai nali ne";
-  const secondWord = "wo zai California";
-  const handleChange = (val: string) => {
-    if (val === secondWord) {
-      setBorder("green");
-    } else {
-      setBorder("red");
-    }
-  };
   return (
-    <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
+    <div
+      style={{ maxWidth: "92vw", display: "flex", justifyContent: "center" }}
+    >
       <div
+        className="earth"
         style={{
-          height: "100%",
-          width: "50vw",
-          display: "flex",
-          alignItems: "center",
-          marginTop: "20px",
-          flexDirection: "column",
+          position: "absolute",
+          right: 10,
+          top: "200px",
+          width: "300px",
+          height: "300px",
         }}
       >
-        <Typography alignSelf="flex-start">{firstWord}</Typography>
-        <TextField
-          onChange={(evt) => handleChange(evt.target.value)}
-          style={{
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderColor: border,
-          }}
-        ></TextField>
+        <Earth />
       </div>
     </div>
   );

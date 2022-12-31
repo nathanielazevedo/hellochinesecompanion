@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import Input from "~/components/Letter";
-import styles from "../styles/Home.module.css";
+import Input from "~/components/spelling/Letter";
+import styles from "../../styles/Home.module.css";
 
 const Word = ({
   word,

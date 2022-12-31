@@ -1,5 +1,5 @@
-import { Typography } from "@mui/material";
 import React from "react";
+import { Typography } from "@mui/material";
 
 const Welcome = () => {
   return (
@@ -11,7 +11,6 @@ const Welcome = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        paddingBottom: "10rem",
       }}
     >
       <Typography variant="h2" color="lightblue">

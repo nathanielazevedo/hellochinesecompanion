@@ -1,9 +1,9 @@
 import { Box, Slider, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
-import Word from "~/components/Word";
+import Word from "~/components/spelling/Word";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import Finished from "./Finished";
+import Finished from "../infoPages/Finished";
 
 const Words = ({
   deck,
