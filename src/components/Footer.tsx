@@ -15,7 +15,7 @@ const Footer = () => {
         padding: "0 2rem",
       }}
     >
-      <Typography>{deckName}</Typography>
+      {/* <Typography>{deckName}</Typography>
       <Stack
         spacing={2}
         direction="row"
@@ -42,7 +42,7 @@ const Footer = () => {
         {index !== deck.length - 1 && (
           <ArrowRightIcon onClick={nextWord} sx={{ cursor: "pointer" }} />
         )}
-      </div>
+      </div> */}
     </Box>
   );
 };

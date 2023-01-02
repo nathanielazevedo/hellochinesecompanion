@@ -21,9 +21,14 @@ const Overview = ({ deck }: { deck: any }) => {
     <TableContainer
       component={Paper}
       variant="outlined"
-      sx={{ padding: "20px 40px 0 40px" }}
+      sx={{
+        padding: "20px 40px 0 40px",
+        overflowY: "scroll",
+        maxHeight: "92vh",
+        border: "none",
+      }}
     >
-      <Table aria-label="simple table" stickyHeader>
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>

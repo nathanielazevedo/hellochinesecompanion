@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Titles } from "../../wordBank/Titles";
 import { useAtom } from "jotai";
-import { sideNavState } from "../../pages/index";
+import { sideNavState } from "../State";
 import {
   Drawer as MuiDrawer,
   List,
@@ -27,6 +27,7 @@ const Drawer = ({ switchDeck }: { switchDeck: any }) => {
         {Titles.map((text, index) => (
           <ListItem
             key={index}
+            sx={{ padding: "0 55px" }}
             onClick={() => {
               switchDeck(text.english);
               setSideNav(false);

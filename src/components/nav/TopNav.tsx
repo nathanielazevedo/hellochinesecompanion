@@ -3,26 +3,21 @@ import AppBar from "@mui/material/AppBar";
 import { Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useAtom } from "jotai";
-import { sideNavState } from "../../pages/index";
+import { sideNavState } from "../State";
+import { deckAtom, tabAtom } from "../State";
 
-const TopNav = ({
-  backToHome,
-  deck,
-  setTab,
-}: {
-  backToHome: () => void;
-  deck: string | undefined;
-  setTab: (tab: string | undefined) => void;
-}) => {
+const TopNav = ({ backToHome }: { backToHome: () => void }) => {
+  const [deck, setDeck] = useAtom(deckAtom);
   const setSideNav = useAtom(sideNavState)[1];
-  return (
+  const [tab, setTab] = useAtom(tabAtom);
+  return tab !== "planet" ? (
     <AppBar
       position="fixed"
       elevation={0}
       sx={{
         position: "aboslute",
         top: 0,
-        height: "50px",
+        height: "70px",
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
@@ -32,7 +27,10 @@ const TopNav = ({
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <MenuIcon onClick={() => setSideNav(true)} sx={{ cursor: "pointer" }} />
+        <MenuIcon
+          onClick={() => setSideNav(true)}
+          sx={{ cursor: "pointer", color: "rgb(255, 255, 255, 0.7)" }}
+        />
         {deck && (
           <div
             style={{
@@ -42,34 +40,34 @@ const TopNav = ({
             }}
           >
             <Typography
-              variant="subtitle1"
-              sx={{ cursor: "pointer" }}
+              variant="subtitle2"
+              sx={{ cursor: "pointer", color: "rgb(255, 255, 255, 0.7)" }}
               mr="20px"
               onClick={() => setTab("overview")}
             >
               Overview
             </Typography>
             <Typography
-              variant="subtitle1"
-              sx={{ cursor: "pointer" }}
+              variant="subtitle2"
+              sx={{ cursor: "pointer", color: "rgb(255, 255, 255, 0.7)" }}
               onClick={() => setTab("spelling")}
               mr="20px"
             >
               Spelling
             </Typography>
             <Typography
-              variant="subtitle1"
-              sx={{ cursor: "pointer" }}
+              variant="subtitle2"
+              sx={{ cursor: "pointer", color: "rgb(255, 255, 255, 0.7)" }}
               onClick={() => setTab("game")}
               mr="20px"
             >
-              Game
+              Games
             </Typography>
           </div>
         )}
       </div>
       <Typography
-        variant="subtitle1"
+        variant="subtitle2"
         color="lightblue"
         onClick={backToHome}
         sx={{ cursor: "pointer" }}
@@ -77,7 +75,7 @@ const TopNav = ({
         Hello Chinese Companion
       </Typography>
     </AppBar>
-  );
+  ) : null;
 };
 
 export default TopNav;
