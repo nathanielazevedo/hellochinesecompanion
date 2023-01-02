@@ -1,3 +1,10 @@
+import React, { useEffect, useState, useRef } from "react";
+import bg from "../bg.webp";
+import { useAtom } from "jotai";
+import ld from "lodash";
+import { deckAtom, tabAtom } from "../State";
+import { useSpring, animated } from "@react-spring/web";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import {
   TextField,
   Dialog,
@@ -6,15 +13,26 @@ import {
   DialogContentText,
   DialogActions,
   Button,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
 } from "@mui/material";
-import React, { useEffect, useState, useRef } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useAtom } from "jotai";
-import { deckAtom, tabAtom } from "../State";
-import bg from "../bg.webp";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
-const Ball = ({ text, setLostDialog }: { text: any; setLostDialog: any }) => {
+const Ball = ({
+  text,
+  setLostDialog,
+  index,
+  handleWrong,
+  difficulty,
+}: {
+  text: any;
+  setLostDialog: any;
+  index: number;
+  handleWrong: any;
+  difficulty: any;
+}) => {
   const first = useRef(true);
   const [spring, api] = useSpring(() => ({
     from: { x: -700 },
@@ -24,7 +42,7 @@ const Ball = ({ text, setLostDialog }: { text: any; setLostDialog: any }) => {
     },
     onRest: (x) => {
       if (x.finished) {
-        setLostDialog(true);
+        handleWrong(index);
         const sound = new Audio("./lose.wav");
         sound.volume = 0.1;
         sound.play();
@@ -35,12 +53,13 @@ const Ball = ({ text, setLostDialog }: { text: any; setLostDialog: any }) => {
     if (first.current) {
       first.current = false;
       var msg = new SpeechSynthesisUtterance();
-      msg.text = text.word.chinese;
+      msg.text = text?.word?.chinese ?? "";
       msg.lang = "zh";
       msg.rate = 0.5;
       window.speechSynthesis.speak(msg);
     }
   }, []);
+
   return (
     <animated.div
       style={{
@@ -57,7 +76,7 @@ const Ball = ({ text, setLostDialog }: { text: any; setLostDialog: any }) => {
         ...spring,
       }}
     >
-      {text.word.pinyin}
+      {difficulty == "easy" && text?.word?.pinyin}
     </animated.div>
   );
 };
@@ -70,54 +89,117 @@ const colors = {
 };
 
 const Patterns = () => {
-  const [comet, setComet] = useState<boolean>(false);
-  const [deck] = useAtom(deckAtom);
-  const [index, setIndex] = useState(10);
+  const setTab = useAtom(tabAtom)[1];
   const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [deck, setDeck] = useAtom(deckAtom);
+  const [playDeck, setPlayDeck] = useState(deck);
+  const [solidDeck, setSolidDeck] = useState(ld.cloneDeep(deck));
+  const [deckInPlay, setDeckInPlay] = useState(1);
+  const [wrongs, setWrongs] = useState<number[]>([]);
   const [showDialog, setShowDialog] = useState(false);
+  const [secondDeck, setSecondDeck] = useState<any>([]);
+  const [playing, setPlaying] = useState<boolean>(false);
   const [showLostDialog, setLostDialog] = useState(false);
+  const [difficulty, setDifficulty] = useState("easy");
   const [showMenuDialog, setShowMenuDialog] = useState(true);
-  const [tab, setTab] = useAtom(tabAtom);
   const [timer, setTimer] = useState<number | undefined>(undefined);
 
-  const handleChange = (text: string) => {
-    setText(text);
-    const obj = deck[index];
-    if (text === obj?.word?.english) {
-      setComet(false);
-      if (index === deck.length - 1) {
-        setShowDialog(true);
-        return;
-      }
+  const handleWrong = (index: number) => {
+    if (index === deck.length - 1) {
+      const val = deck[index];
+      setPlayDeck([...secondDeck, val]);
+      setSecondDeck([]);
+      setPlaying(false);
+      setText("");
+      setTimeout(() => {
+        setIndex(0);
+        setPlaying(true);
+      }, 500);
+    } else {
+      setSecondDeck((o: any) => {
+        const val = deck[index];
+        return [...o, val];
+      });
+      setPlaying(false);
       setText("");
       setTimeout(() => {
         setIndex((o) => o + 1);
-        setComet(true);
+        setPlaying(true);
       }, 500);
     }
   };
 
+  const handleChange = (text: string) => {
+    setText(text);
+    const wordInfo = deck[index];
+
+    // word is right
+    if (text === wordInfo?.word?.english) {
+      setPlaying(false);
+
+      // game is won
+      if (index === deck.length - 1 && secondDeck.length == 0) {
+        setShowDialog(true);
+        const sound = new Audio("./win.wav");
+        sound.volume = 0.1;
+        sound.play();
+        return;
+      }
+
+      // first round over, got some wrong
+      if (index === deck.length - 1 && secondDeck.length !== 0) {
+        setDeckInPlay(2);
+        setDeck(secondDeck);
+        setSecondDeck([]);
+        setText("");
+        setWrongs([]);
+        setIndex(0);
+        setTimeout(() => {
+          setPlaying(true);
+        }, 500);
+        return;
+      }
+
+      // got the word right, but game is not over
+      const sound = new Audio("./good.wav");
+      sound.volume = 0.1;
+      sound.play();
+      setText("");
+      setTimeout(() => {
+        setIndex((o) => o + 1);
+        setPlaying(true);
+      }, 500);
+    }
+  };
+
+  // really starts game
   const start = () => {
-    setComet(false);
+    setPlaying(false);
     setShowMenuDialog(false);
     setTimeout(() => {
       setIndex(0);
-      setComet(true);
+      setPlaying(true);
       setText("");
     }, 500);
   };
 
-  const startGame = () => {
+  // sets countdown
+  const prepareGame = () => {
+    const sound = new Audio("./countdown.wav");
+    sound.volume = 0.3;
+    sound.play();
+    setText("");
     setTimer(3);
+    setDeck(solidDeck);
     let count = 3;
     const time = setInterval(() => {
       count--;
       if (count === 0) {
         clearInterval(time);
         start();
-      }
-      console.log("going", timer);
-      setTimer((o) => (o && o > 0 ? o - 1 : undefined));
+        setTimer(undefined);
+      } else setTimer((o) => (o && o > 0 ? o - 1 : undefined));
     }, 1000);
   };
 
@@ -148,7 +230,7 @@ const Patterns = () => {
       <CloseRoundedIcon
         onClick={() => {
           setShowMenuDialog(true);
-          setComet(false);
+          setPlaying(false);
         }}
         sx={{
           fontSize: "75px",
@@ -158,8 +240,14 @@ const Patterns = () => {
           cursor: "pointer",
         }}
       />
-      {comet && (
-        <Ball text={deck && deck[index]} setLostDialog={setLostDialog} />
+      {playing && (
+        <Ball
+          text={deck && deck[index]}
+          setLostDialog={setLostDialog}
+          index={index}
+          handleWrong={handleWrong}
+          difficulty={difficulty}
+        />
       )}
       <div
         className="planet"
@@ -212,7 +300,7 @@ const Patterns = () => {
             <Button
               onClick={() => {
                 setShowDialog(false);
-                startGame();
+                prepareGame();
               }}
             >
               Play Again
@@ -242,7 +330,7 @@ const Patterns = () => {
             <Button
               onClick={() => {
                 setLostDialog(false);
-                startGame();
+                prepareGame();
               }}
             >
               Play Again
@@ -270,6 +358,30 @@ const Patterns = () => {
             <DialogContentText id="alert-dialog-slide-description">
               Translate the word before the comet hits the planet!
             </DialogContentText>
+            <FormControl sx={{ marginTop: "35px" }}>
+              <FormLabel id="demo-row-radio-buttons-group-label">
+                Difficulty
+              </FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+                defaultValue={difficulty}
+              >
+                <FormControlLabel
+                  value="easy"
+                  control={<Radio />}
+                  label="Easy"
+                  onClick={() => setDifficulty("easy")}
+                />
+                <FormControlLabel
+                  value="hard"
+                  control={<Radio />}
+                  label="Hard"
+                  onClick={() => setDifficulty("hard")}
+                />
+              </RadioGroup>
+            </FormControl>
           </DialogContent>
           <DialogActions
             sx={{ display: "flext", justifyContent: "space-between" }}
@@ -278,7 +390,7 @@ const Patterns = () => {
             <Button
               onClick={() => {
                 setShowMenuDialog(false);
-                startGame();
+                prepareGame();
               }}
             >
               Start
@@ -291,3 +403,11 @@ const Patterns = () => {
 };
 
 export default Patterns;
+
+/* 
+  don't mess with original array
+  1. deep clone array and create a new one
+  2. if wrong - append to this array
+  3. if right - remove from this array
+  4. start new game by cloning original array 
+*/
