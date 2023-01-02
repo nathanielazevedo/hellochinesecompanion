@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { deckAtom, tabAtom } from "../State";
+import { tabAtom } from "../../State";
 import { useAtom } from "jotai";
 
 const Main = () => {

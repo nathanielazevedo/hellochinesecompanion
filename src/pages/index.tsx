@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
-import Patterns from "../components/games/Patterns";
+import Patterns from "../components/games/planetDefender/Patterns";
 import Words from "~/components/spelling/Words";
 import Welcome from "../components/infoPages/Welcome";
 import SideNav from "~/components/nav/SideNav";
@@ -8,7 +8,7 @@ import TopNav from "~/components/nav/TopNav";
 import Overview from "~/components/Overview";
 import AlphabetC from "~/components/Pronunciation";
 import { register } from "~/wordBank";
-import Main from "~/components/games/Main";
+import Main from "~/components/games/planetDefender/Main";
 import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
 // state
