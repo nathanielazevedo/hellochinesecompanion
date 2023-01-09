@@ -35,7 +35,7 @@ const Word = ({
   return (
     <div style={{ padding: "10rem 0 0 5rem" }}>
       <p className={styles.description} onClick={sayWord}>
-        {textChinese}
+        {word?.word?.english}
       </p>
       <div
         id="inputs"

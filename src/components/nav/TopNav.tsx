@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useAtom } from "jotai";
 import { sideNavState } from "../State";
 import { deckAtom, tabAtom } from "../State";
+import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 
 const TopNav = ({ backToHome }: { backToHome: () => void }) => {
   const [deck, setDeck] = useAtom(deckAtom);
@@ -31,7 +32,7 @@ const TopNav = ({ backToHome }: { backToHome: () => void }) => {
           onClick={() => setSideNav(true)}
           sx={{ cursor: "pointer", color: "rgb(255, 255, 255, 0.7)" }}
         />
-        {deck && (
+        {tab && (
           <div
             style={{
               display: "flex",
@@ -66,14 +67,7 @@ const TopNav = ({ backToHome }: { backToHome: () => void }) => {
           </div>
         )}
       </div>
-      <Typography
-        variant="subtitle2"
-        color="lightblue"
-        onClick={backToHome}
-        sx={{ cursor: "pointer" }}
-      >
-        Hello Chinese Companion
-      </Typography>
+      <VideogameAssetIcon fontSize="large" />
     </AppBar>
   ) : null;
 };

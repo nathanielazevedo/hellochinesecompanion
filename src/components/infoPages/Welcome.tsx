@@ -3,20 +3,6 @@ import { Typography } from "@mui/material";
 import { useSpring, animated } from "@react-spring/web";
 
 const Welcome = () => {
-  const [springs, api] = useSpring(() => ({
-    x: -500,
-    config: {
-      duration: 1000,
-      friction: 0,
-      tension: 1,
-    },
-  }));
-
-  const handleClick = () => {
-    api.start({
-      to: [{ x: 500 }, { x: -500 }],
-    });
-  };
   return (
     <div
       style={{
@@ -28,18 +14,8 @@ const Welcome = () => {
         justifyContent: "center",
       }}
     >
-      <animated.div
-        onClick={handleClick}
-        style={{
-          width: 80,
-          height: 80,
-          background: "white",
-          borderRadius: "50%",
-          ...springs,
-        }}
-      />
       <Typography variant="h2" color="lightblue">
-        Game based approach to learning Chinese.
+        Game based approach to learning.
       </Typography>
       <Typography variant="h5" pt="3rem">
         Choose a deck from the left panel to get started

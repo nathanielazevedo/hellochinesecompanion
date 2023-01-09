@@ -7,8 +7,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Typography } from "@mui/material";
+import { useAtom } from "jotai";
+import { deckAtom, tabAtom } from "../components/State";
 
-const Overview = ({ deck }: { deck: any }) => {
+const Overview = () => {
+  const [deck, setDeck] = useAtom(deckAtom);
+  const [tab, setTab] = useAtom(tabAtom);
   const sayWord = (word: string) => {
     var msg = new SpeechSynthesisUtterance();
     msg.text = word;
@@ -35,25 +39,32 @@ const Overview = ({ deck }: { deck: any }) => {
               <Typography variant="h6">Character</Typography>
             </TableCell>
             <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
+              <Typography variant="h6">English</Typography>
+            </TableCell>
+            <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
               <Typography variant="h6">Pinyin</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {deck.map((word: Record<any, any>) => (
-            <TableRow key={word.chinese}>
-              <TableCell
-                align="center"
-                sx={{ cursor: "pointer", borderBottomWidth: "0.01px" }}
-                onClick={() => sayWord(word.word.chinese)}
-              >
-                <Typography variant="h6">{word.word.chinese}</Typography>
-              </TableCell>
-              <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
-                <Typography variant="h6">{word.word.pinyin}</Typography>
-              </TableCell>
-            </TableRow>
-          ))}
+          {deck &&
+            deck.map((word: Record<any, any>) => (
+              <TableRow key={word.chinese}>
+                <TableCell
+                  align="center"
+                  sx={{ cursor: "pointer", borderBottomWidth: "0.01px" }}
+                  onClick={() => sayWord(word.word.chinese)}
+                >
+                  <Typography variant="h6">{word.word.chinese}</Typography>
+                </TableCell>
+                <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
+                  <Typography variant="h6">{word.word.english}</Typography>
+                </TableCell>
+                <TableCell align="center" sx={{ borderBottomWidth: "0.01px" }}>
+                  <Typography variant="h6">{word.word.pinyin}</Typography>
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>

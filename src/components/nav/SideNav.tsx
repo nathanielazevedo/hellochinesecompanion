@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Titles } from "../../wordBank/Titles";
 import { useAtom } from "jotai";
-import { sideNavState } from "../State";
+import { sideNavState, tabAtom } from "../State";
 import {
   Drawer as MuiDrawer,
   List,
@@ -10,9 +10,12 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { colors } from "../games/planetDefender/Patterns";
 
 const Drawer = ({ switchDeck }: { switchDeck: any }) => {
   const [sideNav, setSideNav] = useAtom(sideNavState);
+  const [tab, setTab] = useAtom(tabAtom);
+
   return (
     <MuiDrawer
       open={sideNav}
@@ -27,10 +30,14 @@ const Drawer = ({ switchDeck }: { switchDeck: any }) => {
         {Titles.map((text, index) => (
           <ListItem
             key={index}
-            sx={{ padding: "0 55px" }}
+            sx={{
+              padding: "0 55px",
+              color: tab == text.english ? colors.pink : "white",
+            }}
             onClick={() => {
               switchDeck(text.english);
               setSideNav(false);
+              setTab(text.english);
             }}
           >
             <ListItemButton>

@@ -30,7 +30,7 @@ const Ball = ({
   useEffect(() => {
     if (first.current) {
       first.current = false;
-      var msg = new SpeechSynthesisUtterance();
+      const msg = new SpeechSynthesisUtterance();
       msg.text = text?.word?.chinese ?? "";
       msg.lang = "zh";
       msg.rate = 0.5;
