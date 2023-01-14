@@ -92,3 +92,18 @@ a {
 .border:hover {
   background: linear-gradient(to right, red, green) !important;
 }
+
+/* text fade out */
+
+.fade-out {
+  animation: fadeOut ease 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -7,6 +7,7 @@ import TopNav from "~/components/nav/TopNav";
 import Overview from "~/components/Overview";
 import AlphabetC from "~/components/Pronunciation";
 import Main from "~/components/games/planetDefender/Main";
+import MainSentences from "~/components/games/sentences/Main";
 import { Box } from "@mui/material";
 import { register } from "~/wordBank";
 
@@ -49,6 +50,8 @@ const HelloChinese = () => {
       );
     } else if (tab === "planet") {
       return <Patterns />;
+    } else if (tab === "sentences") {
+      return <MainSentences />;
     } else {
       return <Overview />;
     }
